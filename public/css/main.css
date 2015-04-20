@@ -1,0 +1,49 @@
+article {
+    width: 237px;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+}
+article span,
+article .title {
+    position: absolute;
+    opacity: 0;
+    background-color: #000;
+    color: #eee;
+}
+article span {
+    top: 0; right: 0;
+    margin: 5px;
+    padding: 5px;
+}
+
+article .title {
+    bottom: 40px;
+    padding: 5px;
+    margin-bottom: 0;
+}
+
+article:hover span,
+article:hover .title {
+    opacity: 1;
+}
+article button {
+    margin-top: 10px;
+}
+
+.animate-article-transition {
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+.animate-article-transition.ng-enter {
+    opacity: 0;
+}
+.animate-article-transition.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+.animate-article-transition.ng-leave {
+    opacity: 1;
+}
+.animate-article-transition.ng-leave.ng-leave-active {
+    opacity: 0;
+}

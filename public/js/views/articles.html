@@ -1,0 +1,26 @@
+<h1>Articles</h1>
+
+<div class="row">
+    <article ng-repeat="article in ctrl.articles">
+        <img ng-src="{{article.image | setImageSize:237 }}" alt="Slika za članek {{article.title}}">
+        <span>{{article.section_name | getLastSection}}</span>
+        <h4 class="title">{{article.title}}</h4>
+        <button ng-show="ctrl.loggedIn" class="btn btn-sm btn-default" ng-click="ctrl.removeFavoriteArticle(article)">Odstrani iz priljubljenih</button>        
+        <button ng-hide="ctrl.loggedIn" class="btn btn-sm btn-default" ng-click="ctrl.addFavoriteArticle(article)">Dodaj med priljubljene</button>        
+    </article>
+</div>
+
+<div class="row" ng-show="ctrl.loggedIn">
+    <h2>Latest articles</h2>
+    <div id="latest-articles">
+        <button class="glyphicon glyphicon-chevron-left" ng-click="ctrl.prevArticle()" ng-disabled="ctrl.minArticleId == 0"></button>
+
+        <article class="animate-article-transition" ng-repeat="article in ctrl.fiveArticles" style="width:100px">
+            <img ng-src="{{article.image | setImageSize:100 }}" alt="Slika za članek {{article.title}}">
+        </article>
+
+        <button class="glyphicon glyphicon-chevron-right" ng-click="ctrl.nextArticle()" ng-disabled="ctrl.maxArticleId == 19"></button>
+    
+    </div>
+
+</div>
